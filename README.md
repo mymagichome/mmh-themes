@@ -37,6 +37,12 @@ Coloque os arquivos em `/config/www`:
 background: center / cover no-repeat var(--mmh-bg-fundo01) fixed
 ```
 
+## Trocar as cores sem editar o tema
+
+Com o **MMH Cards** instalado, o card `custom:mmh-cores` ("Cores da casa")
+escolhe paletas prontas ou cores próprias e aplica por cima deste tema, na casa
+toda. Ver a documentação do card no MMH Cards.
+
 ## Paleta
 
 | Token | Papel | Valor |

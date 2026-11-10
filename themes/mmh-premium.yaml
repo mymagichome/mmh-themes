@@ -1,0 +1,394 @@
+# =====================================================================
+#  MMH Themes — My Magic Home
+#  Temas: "mmh-premium" (vidro com desfoque) e "mmh-premium-lite"
+#  (sem desfoque, para tablets de parede mais fracos).
+#
+#  Requer: card-mod (HACS) para o vidro, o fundo e o logo.
+#  Paleta: Direção estética 2026 (marketing). Os tokens mmh-* são lidos
+#  pelos MMH Cards; as variáveis nativas recolorem o resto do HA.
+#
+#  Por cliente NÃO se edita este arquivo (o HACS sobrescreve a cada
+#  atualização). O que muda por cliente fica em /config/www:
+#    /local/backgrounds/{desktop,tablet,mobile}/fundo00..03.webp
+#    /local/backgrounds/logo-mmh-oficial.png
+# =====================================================================
+
+mmh-premium:
+  card-mod-theme: mmh-premium
+  modes:
+    dark: {}
+
+  # ---------- 1. Tokens MMH (lidos pelos MMH Cards) ----------
+  mmh-destaque-rgb: "90, 134, 140"          # #5A868C azul My Magic Home: ações / ligado
+  mmh-destaque-claro-rgb: "195, 216, 217"   # #C3D8D9 palavras-chave, números
+  mmh-luz-rgb: "203, 149, 100"              # #CB9564 âmbar: SÓ iluminação
+  mmh-texto-rgb: "244, 244, 244"            # #F4F4F4 off-white
+  mmh-vidro: "rgba(58, 51, 45, 0.52)"       # grafite quente translúcido
+  mmh-linha: "rgba(244, 244, 244, 0.08)"
+  mmh-sobre-destaque: "#F4F4F4"
+  mmh-sobre-luz: "#2A211A"
+  mmh-fonte: "Outfit, system-ui, sans-serif"
+  mmh-logo-cliente: 'url("/local/backgrounds/logo-mmh-oficial.png")'
+  mmh-logo-largura: "240px"
+
+  # ---------- 2. Identidade (cores nativas do HA) ----------
+  primary-color: "#5A868C"
+  accent-color: "#5A868C"
+  dark-primary-color: "#46696E"
+  light-primary-color: "#C3D8D9"
+  primary-font-family: "Outfit, Roboto, system-ui, sans-serif"
+  paper-font-common-base_-_font-family: "var(--primary-font-family)"
+  mdc-typography-font-family: "var(--primary-font-family)"
+
+  # ---------- 3. Fundo (por view: var(--mmh-bg-fundo01..03)) ----------
+  lovelace-background: >-
+    linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)),
+    center / cover no-repeat
+    var(--mmh-bg-fundo00, url("/local/backgrounds/desktop/fundo00.webp")) fixed
+
+  # ---------- 4. Superfícies ----------
+  primary-background-color: "#1E1B18"
+  secondary-background-color: "rgba(30, 27, 24, 0.6)"
+  ha-dialog-surface-background: "#211D1A"
+  paper-dialog-background-color: "#211D1A"
+  mdc-dialog-scrim-color: "rgba(0, 0, 0, 0.8)"
+  md-sys-color-on-surface: "#F4F4F4"
+  md-sys-color-on-surface-variant: "rgba(244, 244, 244, 0.6)"
+  md-sys-color-on-surface-disabled: "rgba(244, 244, 244, 0.3)"
+  md-sys-color-surface: "#211D1A"
+  md-sys-color-surface-container: "#211D1A"
+  md-sys-color-surface-container-high: "#26221E"
+  md-sys-color-surface-container-highest: "#2B2622"
+  md-sys-color-primary: "#5A868C"
+  md-sys-color-on-primary: "#F4F4F4"
+  mdc-theme-surface: "#211D1A"
+  mdc-theme-primary: "#5A868C"
+  material-secondary-background-color: "#211D1A"
+  paper-listbox-background-color: "#211D1A"
+  mdc-select-fill-color: "#211D1A"
+  mdc-menu-container-elevation: 8
+  sys-color-surface-container: "#211D1A"
+  sys-color-surface-container-highest: "#2B2622"
+
+  # ---------- 5. Campos ----------
+  mdc-text-field-fill-color: "rgba(244, 244, 244, 0.05)"
+  code-editor-background-color: "#171513"
+  input-background-color: "rgba(244, 244, 244, 0.05)"
+  input-fill-color: "rgba(244, 244, 244, 0.05)"
+  input-ink-color: "#F4F4F4"
+  input-idle-line-color: "transparent"
+
+  # ---------- 6. Textos ----------
+  primary-text-color: "#F4F4F4"
+  secondary-text-color: "rgba(244, 244, 244, 0.6)"
+  text-primary-color: "#F4F4F4"
+  disabled-text-color: "rgba(244, 244, 244, 0.3)"
+
+  # ---------- 7. Header e cards ----------
+  app-header-background-color: "transparent"
+  app-header-text-color: "#F4F4F4"
+  ha-card-background: "transparent"
+  card-background-color: "transparent"
+  ha-card-border-radius: "22px"
+  ha-card-border-color: "rgba(244, 244, 244, 0.08)"
+  ha-card-border-width: "0.5px"
+  ha-card-box-shadow: "none"
+
+  # ---------- 8. Estados ----------
+  # azul = ligado/ação · âmbar = só luz
+  state-active-color: "#5A868C"
+  state-icon-color: "rgba(244, 244, 244, 0.6)"
+  state-icon-active-color: "#C3D8D9"
+  state-light-active-color: "#CB9564"
+  state-light-on-color: "#CB9564"
+  state-switch-active-color: "#5A868C"
+  state-switch-on-color: "#5A868C"
+  state-on-color: "#5A868C"
+  state-off-color: "rgba(244, 244, 244, 0.35)"
+  label-badge-text-color: "rgba(244, 244, 244, 0.85)"
+  divider-color: "rgba(244, 244, 244, 0.08)"
+  scrollbar-thumb-color: "rgba(244, 244, 244, 0.18)"
+  paper-slider-knob-color: "#5A868C"
+  paper-slider-active-color: "#5A868C"
+  switch-checked-button-color: "#C3D8D9"
+  switch-checked-track-color: "#5A868C"
+  switch-checked-color: "#5A868C"
+  switch-unchecked-button-color: "rgba(244, 244, 244, 0.35)"
+  switch-unchecked-track-color: "rgba(244, 244, 244, 0.15)"
+  label-badge-red: "rgb(214, 112, 112)"
+  label-badge-blue: "#5A868C"
+  label-badge-green: "rgb(118, 178, 140)"
+  label-badge-yellow: "#CB9564"
+  error-color: "rgb(214, 112, 112)"
+  warning-color: "#CB9564"
+  success-color: "rgb(118, 178, 140)"
+  info-color: "#5A868C"
+
+  # ---------- 9. Vidro nos cards (card-mod) ----------
+  card-mod-card: |
+    ha-card {
+      background: transparent !important;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+    ha-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--mmh-vidro);
+      backdrop-filter: blur(20px) saturate(1.1);
+      -webkit-backdrop-filter: blur(20px) saturate(1.1);
+      z-index: -1;
+      pointer-events: none;
+      border-radius: inherit;
+    }
+    /* sem vidro: títulos, glance, markdown text-only e chips do mushroom */
+    :host(hui-heading-card) ha-card::before,
+    :host(hui-glance-card) ha-card::before,
+    :host(.text-only) ha-card::before,
+    ha-card.text-only::before,
+    :host(mushroom-title-card) ha-card::before,
+    :host(mushroom-chips-card) ha-card::before {
+      content: none !important;
+    }
+    :host(hui-heading-card) ha-card,
+    :host(hui-glance-card) ha-card,
+    :host(.text-only) ha-card,
+    ha-card.text-only,
+    :host(mushroom-title-card) ha-card,
+    :host(mushroom-chips-card) ha-card {
+      background: none !important;
+      border: none !important;
+    }
+
+  # ---------- 10. Fundos responsivos + logo ----------
+  card-mod-root: |
+    html, :host, ha-app-layout {
+      --mmh-bg-fundo00: url("/local/backgrounds/desktop/fundo00.webp");
+      --mmh-bg-fundo01: url("/local/backgrounds/desktop/fundo01.webp");
+      --mmh-bg-fundo02: url("/local/backgrounds/desktop/fundo02.webp");
+      --mmh-bg-fundo03: url("/local/backgrounds/desktop/fundo03.webp");
+    }
+    @media (max-width: 1024px) {
+      html, :host, ha-app-layout {
+        --mmh-bg-fundo00: url("/local/backgrounds/tablet/fundo00.webp");
+        --mmh-bg-fundo01: url("/local/backgrounds/tablet/fundo01.webp");
+        --mmh-bg-fundo02: url("/local/backgrounds/tablet/fundo02.webp");
+        --mmh-bg-fundo03: url("/local/backgrounds/tablet/fundo03.webp");
+      }
+    }
+    @media (max-width: 600px) {
+      html, :host, ha-app-layout {
+        --mmh-bg-fundo00: url("/local/backgrounds/mobile/fundo00.webp");
+        --mmh-bg-fundo01: url("/local/backgrounds/mobile/fundo01.webp");
+        --mmh-bg-fundo02: url("/local/backgrounds/mobile/fundo02.webp");
+        --mmh-bg-fundo03: url("/local/backgrounds/mobile/fundo03.webp");
+      }
+    }
+    div.toolbar .action-items {
+      display: flex;
+      align-items: center;
+    }
+    div.toolbar .action-items::before {
+      content: "";
+      flex: 0 0 auto;
+      width: var(--mmh-logo-largura, 240px);
+      height: 26px;
+      margin-right: 14px;
+      background-image: var(--mmh-logo-cliente);
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-size: contain;
+      pointer-events: none;
+      opacity: 0.95;
+    }
+    @media (max-width: 600px) {
+      div.toolbar .action-items::before {
+        width: 150px;
+      }
+    }
+
+# ---------------------------------------------------------------------
+#  Lite: mesmas cores, sem desfoque (backdrop-filter pesa em tablets
+#  de parede). O vidro vira grafite quase opaco.
+# ---------------------------------------------------------------------
+mmh-premium-lite:
+  card-mod-theme: mmh-premium-lite
+  modes:
+    dark: {}
+
+  mmh-destaque-rgb: "90, 134, 140"
+  mmh-destaque-claro-rgb: "195, 216, 217"
+  mmh-luz-rgb: "203, 149, 100"
+  mmh-texto-rgb: "244, 244, 244"
+  mmh-vidro: "rgba(44, 39, 35, 0.9)"
+  mmh-linha: "rgba(244, 244, 244, 0.08)"
+  mmh-sobre-destaque: "#F4F4F4"
+  mmh-sobre-luz: "#2A211A"
+  mmh-fonte: "Outfit, system-ui, sans-serif"
+  mmh-logo-cliente: 'url("/local/backgrounds/logo-mmh-oficial.png")'
+  mmh-logo-largura: "240px"
+
+  primary-color: "#5A868C"
+  accent-color: "#5A868C"
+  dark-primary-color: "#46696E"
+  light-primary-color: "#C3D8D9"
+  primary-font-family: "Outfit, Roboto, system-ui, sans-serif"
+  paper-font-common-base_-_font-family: "var(--primary-font-family)"
+  mdc-typography-font-family: "var(--primary-font-family)"
+
+  lovelace-background: >-
+    linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)),
+    center / cover no-repeat
+    var(--mmh-bg-fundo00, url("/local/backgrounds/desktop/fundo00.webp")) fixed
+
+  primary-background-color: "#1E1B18"
+  secondary-background-color: "rgba(30, 27, 24, 0.6)"
+  ha-dialog-surface-background: "#211D1A"
+  paper-dialog-background-color: "#211D1A"
+  mdc-dialog-scrim-color: "rgba(0, 0, 0, 0.8)"
+  md-sys-color-on-surface: "#F4F4F4"
+  md-sys-color-on-surface-variant: "rgba(244, 244, 244, 0.6)"
+  md-sys-color-on-surface-disabled: "rgba(244, 244, 244, 0.3)"
+  md-sys-color-surface: "#211D1A"
+  md-sys-color-surface-container: "#211D1A"
+  md-sys-color-surface-container-high: "#26221E"
+  md-sys-color-surface-container-highest: "#2B2622"
+  md-sys-color-primary: "#5A868C"
+  md-sys-color-on-primary: "#F4F4F4"
+  mdc-theme-surface: "#211D1A"
+  mdc-theme-primary: "#5A868C"
+  material-secondary-background-color: "#211D1A"
+  paper-listbox-background-color: "#211D1A"
+  mdc-select-fill-color: "#211D1A"
+  mdc-menu-container-elevation: 8
+  sys-color-surface-container: "#211D1A"
+  sys-color-surface-container-highest: "#2B2622"
+
+  mdc-text-field-fill-color: "rgba(244, 244, 244, 0.05)"
+  code-editor-background-color: "#171513"
+  input-background-color: "rgba(244, 244, 244, 0.05)"
+  input-fill-color: "rgba(244, 244, 244, 0.05)"
+  input-ink-color: "#F4F4F4"
+  input-idle-line-color: "transparent"
+
+  primary-text-color: "#F4F4F4"
+  secondary-text-color: "rgba(244, 244, 244, 0.6)"
+  text-primary-color: "#F4F4F4"
+  disabled-text-color: "rgba(244, 244, 244, 0.3)"
+
+  app-header-background-color: "transparent"
+  app-header-text-color: "#F4F4F4"
+  ha-card-background: "transparent"
+  card-background-color: "transparent"
+  ha-card-border-radius: "22px"
+  ha-card-border-color: "rgba(244, 244, 244, 0.08)"
+  ha-card-border-width: "0.5px"
+  ha-card-box-shadow: "none"
+
+  state-active-color: "#5A868C"
+  state-icon-color: "rgba(244, 244, 244, 0.6)"
+  state-icon-active-color: "#C3D8D9"
+  state-light-active-color: "#CB9564"
+  state-light-on-color: "#CB9564"
+  state-switch-active-color: "#5A868C"
+  state-switch-on-color: "#5A868C"
+  state-on-color: "#5A868C"
+  state-off-color: "rgba(244, 244, 244, 0.35)"
+  label-badge-text-color: "rgba(244, 244, 244, 0.85)"
+  divider-color: "rgba(244, 244, 244, 0.08)"
+  scrollbar-thumb-color: "rgba(244, 244, 244, 0.18)"
+  paper-slider-knob-color: "#5A868C"
+  paper-slider-active-color: "#5A868C"
+  switch-checked-button-color: "#C3D8D9"
+  switch-checked-track-color: "#5A868C"
+  switch-checked-color: "#5A868C"
+  switch-unchecked-button-color: "rgba(244, 244, 244, 0.35)"
+  switch-unchecked-track-color: "rgba(244, 244, 244, 0.15)"
+  label-badge-red: "rgb(214, 112, 112)"
+  label-badge-blue: "#5A868C"
+  label-badge-green: "rgb(118, 178, 140)"
+  label-badge-yellow: "#CB9564"
+  error-color: "rgb(214, 112, 112)"
+  warning-color: "#CB9564"
+  success-color: "rgb(118, 178, 140)"
+  info-color: "#5A868C"
+
+  card-mod-card: |
+    ha-card {
+      background: transparent !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+    ha-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--mmh-vidro);
+      z-index: -1;
+      pointer-events: none;
+      border-radius: inherit;
+    }
+    :host(hui-heading-card) ha-card::before,
+    :host(hui-glance-card) ha-card::before,
+    :host(.text-only) ha-card::before,
+    ha-card.text-only::before,
+    :host(mushroom-title-card) ha-card::before,
+    :host(mushroom-chips-card) ha-card::before {
+      content: none !important;
+    }
+    :host(hui-heading-card) ha-card,
+    :host(hui-glance-card) ha-card,
+    :host(.text-only) ha-card,
+    ha-card.text-only,
+    :host(mushroom-title-card) ha-card,
+    :host(mushroom-chips-card) ha-card {
+      background: none !important;
+      border: none !important;
+    }
+
+  card-mod-root: |
+    html, :host, ha-app-layout {
+      --mmh-bg-fundo00: url("/local/backgrounds/desktop/fundo00.webp");
+      --mmh-bg-fundo01: url("/local/backgrounds/desktop/fundo01.webp");
+      --mmh-bg-fundo02: url("/local/backgrounds/desktop/fundo02.webp");
+      --mmh-bg-fundo03: url("/local/backgrounds/desktop/fundo03.webp");
+    }
+    @media (max-width: 1024px) {
+      html, :host, ha-app-layout {
+        --mmh-bg-fundo00: url("/local/backgrounds/tablet/fundo00.webp");
+        --mmh-bg-fundo01: url("/local/backgrounds/tablet/fundo01.webp");
+        --mmh-bg-fundo02: url("/local/backgrounds/tablet/fundo02.webp");
+        --mmh-bg-fundo03: url("/local/backgrounds/tablet/fundo03.webp");
+      }
+    }
+    @media (max-width: 600px) {
+      html, :host, ha-app-layout {
+        --mmh-bg-fundo00: url("/local/backgrounds/mobile/fundo00.webp");
+        --mmh-bg-fundo01: url("/local/backgrounds/mobile/fundo01.webp");
+        --mmh-bg-fundo02: url("/local/backgrounds/mobile/fundo02.webp");
+        --mmh-bg-fundo03: url("/local/backgrounds/mobile/fundo03.webp");
+      }
+    }
+    div.toolbar .action-items {
+      display: flex;
+      align-items: center;
+    }
+    div.toolbar .action-items::before {
+      content: "";
+      flex: 0 0 auto;
+      width: var(--mmh-logo-largura, 240px);
+      height: 26px;
+      margin-right: 14px;
+      background-image: var(--mmh-logo-cliente);
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-size: contain;
+      pointer-events: none;
+      opacity: 0.95;
+    }
+    @media (max-width: 600px) {
+      div.toolbar .action-items::before {
+        width: 150px;
+      }
+    }

@@ -202,9 +202,9 @@ mmh-premium:
       pointer-events: none;
       opacity: 0.95;
     }
-    @media (max-width: 600px) {
+    @media (max-width: 869px) {
       div.toolbar .action-items::before {
-        width: 150px;
+        display: none;
       }
     }
 
@@ -387,8 +387,8 @@ mmh-premium-lite:
       pointer-events: none;
       opacity: 0.95;
     }
-    @media (max-width: 600px) {
+    @media (max-width: 869px) {
       div.toolbar .action-items::before {
-        width: 150px;
+        display: none;
       }
     }

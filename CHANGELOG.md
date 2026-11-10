@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1
+- Logo do topo só em telas a partir de 870 px (no celular não aparece). Com o
+  MMH Cards 0.21+, o logo é feito pelos cards e configurado em "Cores da casa".
+
 ## 0.1.0
 - Primeira versão: temas `mmh-premium` (vidro com desfoque) e
   `mmh-premium-lite` (sem desfoque, para tablets de parede).

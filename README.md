@@ -1,3 +1,5 @@
+<p align="center"><img src="https://raw.githubusercontent.com/mymagichome/mmh-themes/main/logo.png" alt="My Magic Home" width="120"></p>
+
 # MMH Themes
 
 Temas do Home Assistant no padrão visual **My Magic Home** (Direção estética 2026).

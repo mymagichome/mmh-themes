@@ -3,7 +3,9 @@
 #  Temas: "mmh-premium" (vidro com desfoque) e "mmh-premium-lite"
 #  (sem desfoque, para tablets de parede mais fracos).
 #
-#  Requer: card-mod (HACS) para o vidro, o fundo e o logo.
+#  Não precisa de card-mod: o vidro usa as variáveis nativas do HA
+#  (ha-card-background / ha-card-backdrop-filter). Fundos responsivos e
+#  logo são aplicados pelos MMH Cards (0.37.3+).
 #  Paleta: Direção estética 2026 (marketing). Os tokens mmh-* são lidos
 #  pelos MMH Cards; as variáveis nativas recolorem o resto do HA.
 #
@@ -14,7 +16,6 @@
 # =====================================================================
 
 mmh-premium:
-  card-mod-theme: mmh-premium
   modes:
     dark: {}
 
@@ -87,7 +88,10 @@ mmh-premium:
   # ---------- 7. Header e cards ----------
   app-header-background-color: "transparent"
   app-header-text-color: "#F4F4F4"
-  ha-card-background: "transparent"
+  # Vidro nativo do HA (sem card-mod): fundo grafite translúcido + desfoque.
+  # Títulos (heading) e markdown só de texto ficam sem vidro pelo próprio HA.
+  ha-card-background: "var(--mmh-vidro)"
+  ha-card-backdrop-filter: "blur(20px) saturate(1.1)"
   card-background-color: "transparent"
   ha-card-border-radius: "22px"
   ha-card-border-color: "rgba(244, 244, 244, 0.08)"
@@ -124,96 +128,11 @@ mmh-premium:
   success-color: "rgb(118, 178, 140)"
   info-color: "#5A868C"
 
-  # ---------- 9. Vidro nos cards (card-mod) ----------
-  card-mod-card: |
-    ha-card {
-      background: transparent !important;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-    }
-    ha-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--mmh-vidro);
-      backdrop-filter: blur(20px) saturate(1.1);
-      -webkit-backdrop-filter: blur(20px) saturate(1.1);
-      z-index: -1;
-      pointer-events: none;
-      border-radius: inherit;
-    }
-    /* sem vidro: títulos, glance, markdown text-only e chips do mushroom */
-    :host(hui-heading-card) ha-card::before,
-    :host(hui-glance-card) ha-card::before,
-    :host(.text-only) ha-card::before,
-    ha-card.text-only::before,
-    :host(mushroom-title-card) ha-card::before,
-    :host(mushroom-chips-card) ha-card::before {
-      content: none !important;
-    }
-    :host(hui-heading-card) ha-card,
-    :host(hui-glance-card) ha-card,
-    :host(.text-only) ha-card,
-    ha-card.text-only,
-    :host(mushroom-title-card) ha-card,
-    :host(mushroom-chips-card) ha-card {
-      background: none !important;
-      border: none !important;
-    }
-
-  # ---------- 10. Fundos responsivos + logo ----------
-  card-mod-root: |
-    html, :host, ha-app-layout {
-      --mmh-bg-fundo00: url("/local/backgrounds/desktop/fundo00.webp");
-      --mmh-bg-fundo01: url("/local/backgrounds/desktop/fundo01.webp");
-      --mmh-bg-fundo02: url("/local/backgrounds/desktop/fundo02.webp");
-      --mmh-bg-fundo03: url("/local/backgrounds/desktop/fundo03.webp");
-    }
-    @media (max-width: 1024px) {
-      html, :host, ha-app-layout {
-        --mmh-bg-fundo00: url("/local/backgrounds/tablet/fundo00.webp");
-        --mmh-bg-fundo01: url("/local/backgrounds/tablet/fundo01.webp");
-        --mmh-bg-fundo02: url("/local/backgrounds/tablet/fundo02.webp");
-        --mmh-bg-fundo03: url("/local/backgrounds/tablet/fundo03.webp");
-      }
-    }
-    @media (max-width: 600px) {
-      html, :host, ha-app-layout {
-        --mmh-bg-fundo00: url("/local/backgrounds/mobile/fundo00.webp");
-        --mmh-bg-fundo01: url("/local/backgrounds/mobile/fundo01.webp");
-        --mmh-bg-fundo02: url("/local/backgrounds/mobile/fundo02.webp");
-        --mmh-bg-fundo03: url("/local/backgrounds/mobile/fundo03.webp");
-      }
-    }
-    div.toolbar .action-items {
-      display: flex;
-      align-items: center;
-    }
-    div.toolbar .action-items::before {
-      content: "";
-      flex: 0 0 auto;
-      width: var(--mmh-logo-largura, 240px);
-      height: 26px;
-      margin-right: 14px;
-      background-image: var(--mmh-logo-cliente);
-      background-repeat: no-repeat;
-      background-position: right center;
-      background-size: contain;
-      pointer-events: none;
-      opacity: 0.95;
-    }
-    @media (max-width: 869px) {
-      div.toolbar .action-items::before {
-        display: none;
-      }
-    }
-
 # ---------------------------------------------------------------------
 #  Lite: mesmas cores, sem desfoque (backdrop-filter pesa em tablets
 #  de parede). O vidro vira grafite quase opaco.
 # ---------------------------------------------------------------------
 mmh-premium-lite:
-  card-mod-theme: mmh-premium-lite
   modes:
     dark: {}
 
@@ -279,7 +198,8 @@ mmh-premium-lite:
 
   app-header-background-color: "transparent"
   app-header-text-color: "#F4F4F4"
-  ha-card-background: "transparent"
+  ha-card-background: "var(--mmh-vidro)"
+  ha-card-backdrop-filter: "none"
   card-background-color: "transparent"
   ha-card-border-radius: "22px"
   ha-card-border-color: "rgba(244, 244, 244, 0.08)"
@@ -313,82 +233,3 @@ mmh-premium-lite:
   warning-color: "#CB9564"
   success-color: "rgb(118, 178, 140)"
   info-color: "#5A868C"
-
-  card-mod-card: |
-    ha-card {
-      background: transparent !important;
-      backdrop-filter: none !important;
-      -webkit-backdrop-filter: none !important;
-    }
-    ha-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--mmh-vidro);
-      z-index: -1;
-      pointer-events: none;
-      border-radius: inherit;
-    }
-    :host(hui-heading-card) ha-card::before,
-    :host(hui-glance-card) ha-card::before,
-    :host(.text-only) ha-card::before,
-    ha-card.text-only::before,
-    :host(mushroom-title-card) ha-card::before,
-    :host(mushroom-chips-card) ha-card::before {
-      content: none !important;
-    }
-    :host(hui-heading-card) ha-card,
-    :host(hui-glance-card) ha-card,
-    :host(.text-only) ha-card,
-    ha-card.text-only,
-    :host(mushroom-title-card) ha-card,
-    :host(mushroom-chips-card) ha-card {
-      background: none !important;
-      border: none !important;
-    }
-
-  card-mod-root: |
-    html, :host, ha-app-layout {
-      --mmh-bg-fundo00: url("/local/backgrounds/desktop/fundo00.webp");
-      --mmh-bg-fundo01: url("/local/backgrounds/desktop/fundo01.webp");
-      --mmh-bg-fundo02: url("/local/backgrounds/desktop/fundo02.webp");
-      --mmh-bg-fundo03: url("/local/backgrounds/desktop/fundo03.webp");
-    }
-    @media (max-width: 1024px) {
-      html, :host, ha-app-layout {
-        --mmh-bg-fundo00: url("/local/backgrounds/tablet/fundo00.webp");
-        --mmh-bg-fundo01: url("/local/backgrounds/tablet/fundo01.webp");
-        --mmh-bg-fundo02: url("/local/backgrounds/tablet/fundo02.webp");
-        --mmh-bg-fundo03: url("/local/backgrounds/tablet/fundo03.webp");
-      }
-    }
-    @media (max-width: 600px) {
-      html, :host, ha-app-layout {
-        --mmh-bg-fundo00: url("/local/backgrounds/mobile/fundo00.webp");
-        --mmh-bg-fundo01: url("/local/backgrounds/mobile/fundo01.webp");
-        --mmh-bg-fundo02: url("/local/backgrounds/mobile/fundo02.webp");
-        --mmh-bg-fundo03: url("/local/backgrounds/mobile/fundo03.webp");
-      }
-    }
-    div.toolbar .action-items {
-      display: flex;
-      align-items: center;
-    }
-    div.toolbar .action-items::before {
-      content: "";
-      flex: 0 0 auto;
-      width: var(--mmh-logo-largura, 240px);
-      height: 26px;
-      margin-right: 14px;
-      background-image: var(--mmh-logo-cliente);
-      background-repeat: no-repeat;
-      background-position: right center;
-      background-size: contain;
-      pointer-events: none;
-      opacity: 0.95;
-    }
-    @media (max-width: 869px) {
-      div.toolbar .action-items::before {
-        display: none;
-      }
-    }

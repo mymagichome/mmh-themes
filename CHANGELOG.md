@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0
+- **Sem card-mod.** O vidro dos cards usa as variáveis nativas do HA (`ha-card-background:
+  var(--mmh-vidro)` e `ha-card-backdrop-filter`); títulos e markdown só de texto ficam sem vidro pelo
+  próprio HA. Os fundos responsivos (desktop/tablet/celular) e o logo passam a ser aplicados pelos
+  **MMH Cards 0.37.3+**.
+- Lite: mesmo vidro, sem desfoque.
+
 ## 0.1.1
 - Logo do topo só em telas a partir de 870 px (no celular não aparece). Com o
   MMH Cards 0.21+, o logo é feito pelos cards e configurado em "Cores da casa".

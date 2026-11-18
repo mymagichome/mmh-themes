@@ -12,7 +12,9 @@ Feitos para trabalhar junto com os **MMH Cards**.
 
 ## Instalação
 
-1. **Pré-requisito:** [card-mod](https://github.com/thomasloven/lovelace-card-mod) instalado pelo HACS.
+1. **Pré-requisito:** **MMH Cards 0.37.3 ou mais novo** (aplica os fundos responsivos e o logo).
+   **Não precisa de card-mod:** o vidro usa as variáveis nativas do HA
+   (`ha-card-background` e `ha-card-backdrop-filter`).
 2. No `configuration.yaml`:
    ```yaml
    frontend:
